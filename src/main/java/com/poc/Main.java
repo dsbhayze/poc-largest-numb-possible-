@@ -3,6 +3,7 @@ package com.poc;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -10,13 +11,13 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class Main {
 
     public StringBuilder giveHigherCombination(Integer[] values) {
-        List<Integer> list = putDecimalDotOnIntegers(values);
+        List<Integer> list = putDecimalPointOnIntegers(values);
         return null;
     }
 
-    private List<Integer> putDecimalDotOnIntegers(List<Integer> intValues){
+    private List<Integer> putDecimalPointOnIntegers(Integer[] intValues){
         List<String> stringValues = new ArrayList<>();
-        intValues.forEach(e -> {
+        Arrays.stream(intValues).forEach(e -> {
             if (e.toString().length() > 0) {
                 StringBuilder sb = new StringBuilder();
                 stringValues.add(sb.append(e).insert(1, ".").toString());
@@ -30,7 +31,7 @@ public class Main {
         //TODO
     }
 
-    private void removeDecimalDots(){
+    private void removeDecimalPoints(){
         //TODO
     };
 
