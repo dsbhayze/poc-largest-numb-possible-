@@ -26,13 +26,21 @@ public class Main {
         }
 
         Map<Integer, Integer> normalizeMap = normalizeData(maxUnit, mutableMap);
-
         return null;
     }
 
     private Map<Integer, Integer> normalizeData(int maxUnit, Map<Integer, Integer> values) {
-        //TODO
-        return null;
+        for (int i = 0; i < values.size(); i++) {
+            if (values.get(i).toString().length() < maxUnit) {
+                StringBuilder value = new StringBuilder(values.get(i).toString());
+                String firstUnit = value.substring(0, 1);
+                while (value.length() < maxUnit) {
+                    value.append(firstUnit);
+                }
+                values.put(i, Integer.valueOf(String.valueOf(value)));
+            }
+        }
+        return values;
     }
 
     private void sortDesc() {
