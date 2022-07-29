@@ -1,48 +1,40 @@
 package com.poc;
 
-import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.Map;
 
 public class Main {
 
-    public StringBuilder giveHigherCombination(Integer[] values) {
-        List<Integer> list = putDecimalPointOnIntegers(values);
+    public String giveHigherCombination(List<Integer> values) {
+        Collections.sort(values);
+        Collections.reverse(values);
+        int maxUnit = values.get(0).toString().length();
+
+        Map<Integer, Integer> originalMap = new HashMap<>();
+        Map<Integer, Integer> mutableMap = new HashMap<>();
+        for (int i = 0; i < values.size(); i++) {
+            originalMap.put(i, values.get(i));
+            mutableMap.put(i, values.get(i));
+        }
+
+        Map<Integer, Integer> normalizeMap = normalizeData(maxUnit, mutableMap);
+
         return null;
     }
 
-    private List<Integer> putDecimalPointOnIntegers(Integer[] intValues){
-        List<String> stringValues = new ArrayList<>();
-        Arrays.stream(intValues).forEach(e -> {
-            if (e.toString().length() > 0) {
-                StringBuilder sb = new StringBuilder();
-                stringValues.add(sb.append(e).insert(1, ".").toString());
-            }
-            stringValues.add(e.toString());
-        });
+    private Map<Integer, Integer> normalizeData(int maxUnit, Map<Integer, Integer> values) {
+        //TODO
         return null;
-    };
+    }
 
-    private void sortByHigherValue(){
+    private void sortDesc() {
         //TODO
     }
 
-    private void removeDecimalPoints(){
+    private String printHigherCombination() {
         //TODO
-    };
-
-
-
-    @Test
-    public void testCase() {
-        assertEquals("95021", giveHigherCombination(new Integer[]{50, 2, 1, 9}));
+        return null;
     }
-
-
-
-
 }
